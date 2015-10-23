@@ -27,6 +27,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.sitemaps',
     'django.contrib.sites',
+    'blog',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -63,6 +64,10 @@ TEMPLATES = [
 WSGI_APPLICATION = 'freetorial.wsgi.application'
 
 
+# Site
+
+SITE_ID = 1
+
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
 
@@ -75,4 +80,3 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
-

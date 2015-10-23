@@ -1,0 +1,12 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+    {% for post in object_list %}
+    <div>
+        <h3>{{ post.title }}</h3>
+        <div>{{ post.tease }}</div>
+        <a href="{{ post.get_absolute_url }}">Читать далее...</a>
+        <hr/>
+    </div>
+    {% endfor %}
+{% endblock %}
