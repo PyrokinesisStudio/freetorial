@@ -1,0 +1,11 @@
+.jumbotron {
+    padding: 90px;
+    margin-bottom: 90px;
+    background-image: url(../img/jumbo.jpg);
+    background-position: 0% 25%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: black;
+    text-shadow: white 0.1em 0.1em 0.1em;
+    text-align: right;
+}

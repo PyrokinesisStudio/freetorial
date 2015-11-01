@@ -23,7 +23,7 @@ urlpatterns = [
         name='blog_post_list',
     ),
     url(
-        r'^(?P<year>\d{4})/(?P<month>\d{2})/(?P<day>\d{2})/(?P<slug>[\w-]+)/$',
+        r'^(?P<year>[\d]+)/(?P<month>[\d]+)/(?P<day>[\d]+)/(?P<slug>[\w-]+)/$',
         PostDetailView.as_view(),
         name='blog_post_detail',
     ),

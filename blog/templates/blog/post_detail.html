@@ -2,5 +2,5 @@
 
 {% block content %}
     <h1>{{ object.title }}</h1>
-    <div>{{ object.body }}</div>
+    <div>{{ object.body|safe }}</div>
 {% endblock %}
