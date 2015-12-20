@@ -1,7 +1,7 @@
 from __future__ import unicode_literals
 
 from django.conf import settings
-from django.contrib.auth.models import User
+from django.contrib.sites.models import Site
 from django.db import models
 from django.utils import timezone
 from django.utils.translation import ugettext_lazy as _
@@ -15,12 +15,13 @@ class Category(models.Model):
     """Category model."""
     title = models.CharField(_('title'), max_length=100)
     slug = models.SlugField(_('slug'), unique=True)
+    weight = models.IntegerField(_('weight'))
 
     class Meta:
         verbose_name = _('category')
         verbose_name_plural = _('categories')
         db_table = 'blog_categories'
-        ordering = ('title',)
+        ordering = ('weight', 'title')
 
     def __str__(self):
         return '{}'.format(self.title)
@@ -34,8 +35,9 @@ class Category(models.Model):
 class Post(models.Model):
     """Post model."""
     STATUS_CHOICES = (
-        ('d', _('Draft')),
-        ('p', _('Public')),
+        ('d', _('draft')),
+        ('h', _('hidden')),
+        ('p', _('public')),
     )
     title = models.CharField(_('title'), max_length=200)
     slug = models.SlugField(_('slug'), unique_for_date='publish')
@@ -47,7 +49,8 @@ class Post(models.Model):
     publish = models.DateTimeField(_('publish'), default=timezone.now)
     created = models.DateTimeField(_('created'), auto_now_add=True)
     modified = models.DateTimeField(_('modified'), auto_now=True)
-    categories = models.ManyToManyField(Category, blank=True, related_name='posts')
+    sites = models.ManyToManyField(Site, related_name='posts', verbose_name=_('sites'))
+    categories = models.ManyToManyField(Category, related_name='posts', verbose_name=('_categories'))
 
     objects = PublicManager()
 

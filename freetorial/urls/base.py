@@ -18,11 +18,13 @@ from django.contrib import admin
 
 from django.views.generic import TemplateView
 
+from blog.views import PostListView
+
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
 
-    url(r'^$', TemplateView.as_view(template_name='index.html'), name='index'),
+    url(r'^$', PostListView.as_view() , name='index'),
 
     url(r'^blog/', include('blog.urls')),
 ]

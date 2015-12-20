@@ -1,0 +1,9 @@
+<!-- Blog Categories Well -->
+<div class="well">
+    <h4>Категории</h4>
+    <ul class="list-unstyled">
+      {% for cat in categories %}
+      <li><a href="{{ cat.get_absolute_url }}">{{ cat.title }}</a></li>
+      {% endfor %}
+    </ul>
+</div>

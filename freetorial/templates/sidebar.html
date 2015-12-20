@@ -1,9 +1,23 @@
-<div class="row">
-    <ul>
-        <li>Link 1</li>
-        <li>Link 2</li>
-        <li>Link 3</li>
-        <li>Link 4</li>
-        <li>Link 5</li>
-    </ul>
-</div>
+
+                <!-- Blog Search Well -->
+                <div class="well">
+                    <h4>Blog Search</h4>
+                    <div class="input-group">
+                        <input class="form-control" type="text">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="button">
+                                <span class="glyphicon glyphicon-search"></span>
+                        </button>
+                        </span>
+                    </div>
+                    <!-- /.input-group -->
+                </div>
+
+                {% load blog_tags %}
+                {% blog_category_widget %}
+
+                <!-- Side Widget Well -->
+                <div class="well">
+                    <h4>Side Widget Well</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, perspiciatis adipisci accusamus laudantium odit aliquam repellat tempore quos aspernatur vero.</p>
+                </div>
